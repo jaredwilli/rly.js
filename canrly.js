@@ -42,29 +42,6 @@
  
  
  	
-	var document = window.document;
-	var yarly = (function() {
-		
-	var yarly = function( selector, context ) {
-			this.selector = selector;
-			this.context = context;
-			this.rootyarly = rootyarly;
-		},
-	
-		_yarly = window.yarly,
-	
-		_y = window.y,
-	
-		rootyarly;
-	
-	yarly.prototype = {
-		constuctor: yarly,
-		
-		init: function( selector, context ) {
-			
-			
-		},	
-	}
 	
 	/**
 	 * For referencing object prototypes:
