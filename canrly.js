@@ -1,11 +1,20 @@
+/*===========================*\
+
+ oh rly?	    ya rly!  
+   \ ___,	 ___ /	 _,_ no rly?
+	{O,0}	{-.-}	{o,O} /
+	|)__)	|)~(|	(~~(|
+-----"-"-----"-"-----"-"-----,_
+=============================*/
+
 /**
- * This is a library that tries to simplify the repetition in development using 
- * the Canvas API. Trying to make coding for Canvas more DRY in a sense.
+ * This is a library that tries to simplify the repetition in development using the Canvas API. 
+ * Trying to make coding for Canvas more DRY in a sense.
  * 
  * Think of it like jQuery for Canvas
  *
  * version 0.0.1
- * 
+ * By: Jared Williams - @jaredwilli
  * REF: http://simon.html5.org/dump/html5-canvas-cheat-sheet.html
  */
  

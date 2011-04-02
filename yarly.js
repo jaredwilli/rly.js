@@ -1,4 +1,14 @@
-// IGNORE THIS FOR NOW, IT'S JUST A PLACE HOLDER
+/*===========================*\
+
+ oh rly?	    ya rly!  
+   \ ___,	 ___ /	 _,_ no rly?
+	{O,0}	{-.-}	{o,O} /
+	|)__)	|)~(|	(~~(|
+-----"-"-----"-"-----"-"-----,_
+=============================*/
+
+
+// IGNORE THE REST OF THIS FOR NOW, IT'S JUST A PLACE HOLDER
 
 (function(window) {
     var middle = [],
