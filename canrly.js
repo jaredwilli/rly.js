@@ -40,26 +40,99 @@
 	 * working with canvas where you don't repeat things like, lineTo(2,5,20,10); and moveTo() and other things
 	 */
  
- 
- 	
 	
+	Object.prototyp.clone = function( obj ) {
+		function Construct(){}
+		Construct.prototype =  obj ;
+		return new Construct();
+	}
+	
+	Object.prototype.inherit = function( obj ) {
+		this.prototype = clone( obj.prototype);
+		this.prototype.constructor = this;
+	};
+	
+	Object.prototype.method = function( name, callback ) {
+		this.prototype[ name ] = callback;
+	};
+	
+	Object.prototype.create = function() {
+		var object = clone( this );
+		if( typeof object.construct == "function" )
+			object.construct.apply( object, arguments );
+		return object;
+	};
+	
+	Object.prototype.extend = function( props ) {
+		var result = clone( this );
+		forEach( props, function( name, value ) {
+			result[ name ] = value;
+		});
+		return result;
+	};
+
+	Object.prototype.store = function(name, value) {
+		this.values[name] = value;
+	};
+
+	Object.prototype.lookup = function(name) {
+		return this.values[name];
+	};
+	
+	Object.prototype.contains = function(name) {
+		return Object.prototype.hasOwnProperty.call(this.values, name) &&
+			 Object.prototype.propertyIsEnumerable.call(this.values, name);
+	};
+
 	/**
 	 * For referencing object prototypes:
 	 * inheritance - http://goo.gl/K3G3
 	 * prototype   - http://goo.gl/IIP0a
+	 * cheatsheet  - http://goo.gl/V8ZD
 	 */
 
+	/**
+	 * Native properties and methods - 
+	 * .prototype .isPrototypeOf .instanceof .hasOwnProperty .
+	 * .concat .join .splice .map .filter .forEach .call .apply .substr 
+	 * .slice .split .push .pop .length .toString .indexOf 
+	 * Math.PI .abs .sin .cos .tan .acos .asin .atan .atan2 .sqrt
+	 * .exp .log .ceil .floor .min .max .pow .random .round 
+	 */
 
 	/** 
 	 * @Constructor object
 	 * Create canvas elements with height, width, ID, context
 	 */
+
+	width
+	height
+	toDataURL([Optional] string type, [Variadic] any args)
 	
-	
+	getContext("2d");
+	save()
+	restore() 
+
+
 	
 	/**
-	 * Path methods
+	 * Paths
 	 */
+	 
+	 // Methods
+ 	beginPath()
+	closePath()
+	fill()
+	stroke()
+	clip()
+	moveTo(x, y)
+	lineTo(x, y)
+	quadraticCurveTo(cpx, cpy, x, y)
+	bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+	arcTo(x1, y1, x2, y2, radius)
+	arc(x, y, radius, startAngle, endAngle, boolean anticlockwise)
+	rect(x, y, w, h)
+	isPointInPath(x, y) 
 	
 	
 	
@@ -68,40 +141,77 @@
 	 * Colors styles and shadows
 	 */
 	
+	// Attributes
+	strokeStyle
+	fillStyle
+	shadowOffsetX
+	shadowOffsetY
+	shadowBlur
+	shadowColor
 	
-	
+	// Methods
+	createLinearGradient(x0, y0, x1, y1)
+	createRadialGradient(x0, y0, r0, x1, y1, r1)
+	addColorStop(offset, string color)
+	createPattern(Object image, string repetition)
 	
 	/**
 	 * Line styles
 	 */
-	
-	
-	
-	
-	/**
-	 * Text
-	 */	
-	
-	
+	 
+	// Attributes
+	lineWidth
+	lineCap
+	lineJoin
+	miterLimit	
 	
 	
 	/**
-	 * Rectangles
+	 * Text methods
 	 */
 	 
+	 // Attributes
+	font // 10px sans-serif
+	textAlign start // Supports any of the following values: start, end, left, right, center
+	textBaseline
 	
+
+	// Methods
+	fillText(string text, x, y, [Optional] maxWidth)
+	strokeText(string text, x, y, [Optional] maxWidth)
+	measureText(string text)
+	
+	/**
+	 * Rectangles and shapes
+	 */
+	 
+	// Methods
+	clearRect(x, y, w, h)
+	fillRect(x, y, w, h)
+	strokeRect(x, y, w, h) 
 	
 	
 	/**
 	 * Transformations
 	 */
 	
+	// Methods
+	scale(x, y)
+	rotate(angle)
+	translate(x, y)
+	transform(m11, m12, m21, m22, dx, dy)
+	setTransform(m11, m12, m21, m22, dx, dy) 
 	
 	
 	
 	/**
 	 * Pixel manipulation
 	 */
+	 
+	 // Methods
+	createImageData(sw, sh)
+	getImageData( sx, sy, sw, sh)
+	putImageData( imagedata, dx, dy, [Optional] dirtyX, dirtyY, dirtyWidth, dirtyHeight) 
 	
 	
 	
@@ -116,7 +226,11 @@
 	/**
 	 * Drawing images
 	 */
-	
+	 
+	 // Methods
+	drawImage(Object image, dx, dy, [Optional] dw, dh)
+	// Argument image can be of type HTMLImageElement, HTMLCanvasElement or HTMLVideoElement.
+	drawImage(Object image, sx, sy, sw, sh, dx, dy, dw, dh) 	
 	
 	
 	
